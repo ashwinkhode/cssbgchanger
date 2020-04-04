@@ -1,0 +1,104 @@
+<!-- Dont judge my code I did it because I was bored! -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Colour Changer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            color: black;
+            background: red;
+            
+            }
+        p {
+            font-weight: 400;
+            padding: 10px;
+        }
+
+        button {
+            position: relative;
+            margin: 20px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: aliceblue;
+        }
+
+        .contact {
+            margin: 20px;
+
+        }
+
+        a {
+            color: red;
+            background-color: aliceblue;
+            padding: 5px 10px;
+            margin: 0 2px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: lightgreen;
+            color: hotpink;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CSS Background Changer</h1>
+    <p>Just a simple project to practice my HTML, CSS & JS</p>
+    <div class="button">
+        <button id="changeit">Click Me</button>
+    </div>
+    <footer>
+        <div class="footer">
+            <h4>Made for fun by Ashwin Khode</h4>
+            <div class="contact">
+                Get in touch with me on :
+                <a href="https://instagram.com/ui.ashwin/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/ashwin-khode/" target="_blank">LinkedIN</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        var style = document.querySelector('body').style;
+        var btn = document.getElementById('changeit');
+        var temp = 1;
+        btn.addEventListener('click', () => {
+            style.background = getRandomColor();
+            btn.style.top = (Math.random()*400);
+           
+            if(temp == 1) { 
+                btn.style.left = (Math.random()*(400));
+                temp--;
+            }else if(temp == 0) {
+                btn.style.left = (Math.random()*(-600));
+                temp++;
+            }
+        })
+
+    </script>
+</body>
+</html>
